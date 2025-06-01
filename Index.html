@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EnSah</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">EnSah Boutique</div>
+        <div>
+            <ul>
+                <li><a href="#Home">Accueil</a></li>
+                <li><a href="#Destination">Destination</a></li>
+                <li><a href="#Prix">Prix</a></li>
+                <li><a href="#Services">Services</a></li>
+                <li><a href="#Reviews">Avis</a></li>
+            </ul>
+        </div>
+        <div class="nav-buttons">
+            <a href="login.html"><button id="openLogin">Connexion</button></a>
+            <a href="signup.html"><button id="openSignup">Créer un compte</button></a>
+            <button id="cartBtn">Panier (<span id="cartCount">0</span>)</button>
+        </div>
+    </nav>
+
+    <!-- Formulaire de Connexion -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Connexion</h2>
+            <form>
+                <label for="login-email">Email :</label>
+                <input type="email" id="login-email" required />
+                <label for="login-password">Mot de passe :</label>
+                <input type="password" id="login-password" required />
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Formulaire d'inscription -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSignup">&times;</span>
+            <h2>Créer un compte</h2>
+            <form>
+                <label for="signup-name">Nom :</label>
+                <input type="text" id="signup-name" required />
+                <label for="signup-firstname">Prénom :</label>
+                <input type="text" id="signup-firstname" required />
+                <label for="signup-birthdate">Date de naissance :</label>
+                <input type="date" id="signup-birthdate" required />
+                <label for="signup-phone">Téléphone :</label>
+                <input type="tel" id="signup-phone" required />
+                <label for="signup-email">Email :</label>
+                <input type="email" id="signup-email" required />
+                <label for="signup-password">Mot de passe :</label>
+                <input type="password" id="signup-password" required />
+                <label for="signup-confirmpassword">Confirmez votre Mot de passe :</label>
+                <input type="password" id="signup-confirmpassword" required />
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <img src="" alt="" />
+    </div>
+
+    <!-- Wrapper global des sections produits -->
+    <div class="sections-wrapper">
+
+        <!-- Section 1 -->
+        <div class="product-section">
+            <h2>Section 1</h2>
+            <div class="product-container">
+                <!-- Produit 1 -->
+                <div class="product-item">
+                    <img src="img/2148317617.jpg" alt="Produit 1" />
+                    <div class="product-info">
+                        <h3>Produit 1</h3>
+                        <p class="price">Prix : 30€</p>
+                        <p class="description">Description du produit 1</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 1" data-price="30">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 2 -->
+                <div class="product-item">
+                    <img src="img/2148549113.jpg" alt="Produit 2" />
+                    <div class="product-info">
+                        <h3>Produit 2</h3>
+                        <p class="price">Prix : 50€</p>
+                        <p class="description">Description du produit 2</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 2" data-price="50">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 3 -->
+                <div class="product-item">
+                    <img src="img/2148549119.jpg" alt="Produit 3" />
+                    <div class="product-info">
+                        <h3>Produit 3</h3>
+                        <p class="price">Prix : 25€</p>
+                        <p class="description">Description du produit 3</p>
+                        <p class="rating">Note : ⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 3" data-price="25">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 4 -->
+                <div class="product-item">
+                    <img src="img/2148549137.jpg" alt="Produit 4" />
+                    <div class="product-info">
+                        <h3>Produit 4</h3>
+                        <p class="price">Prix : 40€</p>
+                        <p class="description">Description du produit 4</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 4" data-price="40">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="product-section">
+            <h2>Section 2</h2>
+            <div class="product-container">
+                <!-- Produit 5 -->
+                <div class="product-item">
+                    <img src="img/2148990019.jpg" alt="Produit 5" />
+                    <div class="product-info">
+                        <h3>Produit 5</h3>
+                        <p class="price">Prix : 30€</p>
+                        <p class="description">Description du produit 5</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 5" data-price="30">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 6 -->
+                <div class="product-item">
+                    <img src="img/2150435195.jpg" alt="Produit 6" />
+                    <div class="product-info">
+                        <h3>Produit 6</h3>
+                        <p class="price">Prix : 50€</p>
+                        <p class="description">Description du produit 6</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 6" data-price="50">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 7 -->
+                <div class="product-item">
+                    <img src="img/2148317617.jpg" alt="Produit 7" />
+                    <div class="product-info">
+                        <h3>Produit 7</h3>
+                        <p class="price">Prix : 25€</p>
+                        <p class="description">Description du produit 7</p>
+                        <p class="rating">Note : ⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 7" data-price="25">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 8 -->
+                <div class="product-item">
+                    <img src="img/2148317617.jpg" alt="Produit 8" />
+                    <div class="product-info">
+                        <h3>Produit 8</h3>
+                        <p class="price">Prix : 40€</p>
+                        <p class="description">Description du produit 8</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 8" data-price="40">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="product-section">
+            <h2>Section 3</h2>
+            <div class="product-container">
+                <!-- Produit 9 -->
+                <div class="product-item">
+                    <img src="img/2148549119.jpg" alt="Produit 9" />
+                    <div class="product-info">
+                        <h3>Produit 9</h3>
+                        <p class="price">Prix : 30€</p>
+                        <p class="description">Description du produit 9</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 9" data-price="30">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 10 -->
+                <div class="product-item">
+                    <img src="img/2148549137.jpg" alt="Produit 10" />
+                    <div class="product-info">
+                        <h3>Produit 10</h3>
+                        <p class="price">Prix : 50€</p>
+                        <p class="description">Description du produit 10</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 10" data-price="50">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 11 -->
+                <div class="product-item">
+                    <img src="img/2148549137.jpg" alt="Produit 11" />
+                    <div class="product-info">
+                        <h3>Produit 11</h3>
+                        <p class="price">Prix : 25€</p>
+                        <p class="description">Description du produit 11</p>
+                        <p class="rating">Note : ⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 11" data-price="25">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 12 -->
+                <div class="product-item">
+                    <img src="img/2150435195.jpg" alt="Produit 12" />
+                    <div class="product-info">
+                        <h3>Produit 12</h3>
+                        <p class="price">Prix : 40€</p>
+                        <p class="description">Description du produit 12</p>
+                        <p class="rating">Note : ⭐⭐⭐⭐⭐</p>
+                        <button class="add-to-cart" data-name="Produit 12" data-price="40">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Section des Témoignages -->
+    <div class="testimonials-section">
+        <h2>Témoignages de Clients Satisfaits</h2>
+        <div class="video-container">
+            <div class="video-item">
+                <iframe width="315" height="560" src="https://www.youtube.com/embed/cAXT_FlAk6A"
+                    title="maquillage très simple avec du fond du teint et du mascara pour les débutantes" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>Client 1</p>
+            </div>
+            <div class="video-item">
+                <iframe width="315" height="560" src="https://www.youtube.com/embed/jWvCRZ3x9ZM"
+                    title="Top 4 des laits de corps qui sublimerai votre peau sèche. #mixa #bazarddudimanche #shorts #beauté"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>Client 2</p>
+            </div>
+            <div class="video-item">
+                <iframe width="315" height="560" src="https://www.youtube.com/embed/bE9Ef6HqlrI"
+                    title="ASTUCE : FINIT L’EFFET PEAU GRASSE APRÈS LE FOND DE TEINT ! @TheClassyEmily" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>Client 3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Panier -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCart">&times;</span>
+            <h2>Panier</h2>
+            <div id="cartItems"></div>
+            <p id="totalAmount"></p>
+            <button id="checkoutBtn">Valider la commande</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section contact-info">
+      <h3>Contactez-nous</h3>
+      <p>Adresse : 123 Rue Exemple, Abidjan, Côte d'Ivoire</p>
+      <p>Téléphone : +123 456 789</p>
+      <p>Email : contact@ensah.com</p>
+    </div>
+
+    <div class="footer-section location">
+      <h3>Notre localisation</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.215612827964!2d-4.023505684670871!3d5.345317995750241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfb1ebd9e0e7d93f%3A0x5a5d2181b4cda0a!2sAbidjan!5e0!3m2!1sfr!2sci!4v1685799626827!5m2!1sfr!2sci"
+        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+<div class="footer-section social-media">
+  <h3>Suivez-nous</h3>
+  <a href="https://facebook.com/ensah" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+    <img src="Img/whatsapp.png" alt="Facebook" class="social-icon" />
+  </a>
+  <a href="https://tiktok.com/ensah" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046120.png" alt="TikTok" class="social-icon" />
+  </a>
+  <a href="https://instagram.com/ensah" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="social-icon" />
+  </a>
+  <a href="https://snapchat.com/ensah" target="_blank" rel="noopener noreferrer" aria-label="Snapchat">
+    <img src="https://cdn-icons-png.flaticon.com" alt="Snapchat" class="social-icon" />
+  </a>
+</div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 EnSah Boutique. Tous droits réservés.</p>
+  </div>
+</footer>
+
+</body>
+
+</html>

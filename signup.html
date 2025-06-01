@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte</title>
+    <link rel="stylesheet" href="/Styles/signup.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">EnSah Boutique</div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="login.html">Se connecter</a></li>
+        </ul>
+    </nav>
+
+    <!-- Formulaire d'inscription -->
+    <div class="modal-content">
+        <h2>Créer un compte</h2>
+        <form action="#">
+            <label for="signup-name"></label>
+            <input type="text" id="signup-name" placeholder="Nom et prenom" required />
+
+            <!--(Prénom) A ajouter après à la demande du client-->
+
+            <!--<label for="signup-firstname">Prénom :</label>
+            <input type="text" id="signup-firstname" placeholder="Entrez votre prénom" required />-->
+
+                <!--Date de naissance A mettre apres au souhait du client-->
+
+            <!--<label for="signup-birthdate">Date de naissance :</label>
+            <input type="date" id="signup-birthdate" required />-->
+
+            <label for="signup-phone"></label>
+            <div class="phone-input">
+    <select id="phone-code" required>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <option value="+1">+1 (USA)</option>
+        <option value="+33">+33 (France)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+221">+221 (Sénégal)</option>
+        <!-- Ajoute d'autres options d'indicatifs ici -->
+    </select>
+    <input type="tel" id="signup-phone" placeholder="Numéro de téléphone" required />
+</div>
+
+            <label for="signup-email"></label>
+            <input type="email" id="signup-email" placeholder="Email" required />
+
+            <label for="signup-password"></label>
+            <input type="password" id="signup-password" placeholder="Mot de passe" required />
+
+                         <!--(Confirmez mot de passe)A mettre après si le client demande-->
+        
+            <!--<label for="signup-confirmpassword">Confirmez votre Mot de passe :</label>
+            <input type="password" id="signup-confirmpassword" placeholder="Confirmez votre mot de passe" required />-->
+
+            <button type="submit">S'inscrire</button>
+        </form>
+        <p>Vous avez déjà un compte ? <a href="login.html">Se connecter ici</a></p>
+          <script>
+        // Fonction pour défiler jusqu'au formulaire
+        function scrollToForm() {
+            document.getElementById('signup-form').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    </div>
+</body>
+</html>
