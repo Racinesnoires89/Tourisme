@@ -374,3 +374,85 @@ body {
   outline: 3px solid #f39c12;
   outline-offset: 3px;
 }
+
+.footer-section.contact-form {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.footer-section.contact-form h3 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footer-section.contact-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-section.contact-form label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.footer-section.contact-form input,
+.footer-section.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.footer-section.contact-form button.submit-btn {
+  padding: 10px 20px;
+  background-color: #f39c12;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-section.contact-form button.submit-btn:hover {
+  background-color: #e67e22;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-section.contact-form {
+    padding: 15px 10px;
+  }
+
+  .footer-section.contact-form h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-section.contact-form .form-group {
+    margin-bottom: 10px;
+  }
+
+  .footer-section.contact-form input,
+  .footer-section.contact-form textarea {
+    font-size: 0.9rem;
+  }
+
+  .footer-section.contact-form button.submit-btn {
+    font-size: 0.9rem;
+  }
+}
+
