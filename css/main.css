@@ -806,6 +806,8 @@ section {
   margin-bottom: 0;
 }
 
+
+
 .desktop-nav .dropdown-menu a {
   display: block;
   padding: var(--spacing-sm);
@@ -945,6 +947,7 @@ section {
   color: var(--color-primary-600);
   margin-right: var(--spacing-sm);
 }
+
 
 /* Featured Products */
 .products-grid {
