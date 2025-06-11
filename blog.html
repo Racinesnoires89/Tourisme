@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - AgroVision</title>
+    <link rel="stylesheet" href="css/mains.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header header-light">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-icon"><i class="fas fa-leaf"></i></span>
+                        <span class="logo-text">AgroVision</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="menu-toggle" aria-label="Toggle Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Agriculture <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="agriculture/commerciale.html">Commerciale</a></li>
+                                <li><a href="agriculture/foragere.html">Foragère</a></li>
+                                <li><a href="agriculture/industrielle.html">Industrielle</a></li>
+                                <li><a href="agriculture/maraichere.html">Maraîchère</a></li>
+                                <li><a href="agriculture/rente.html">Rente</a></li>
+                                <li><a href="agriculture/vivriere.html">Vivrière</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Élevage <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../aviculture.html">Aviculture</a></li>
+                                <li><a href="../boviculture.html">Boviculture</a></li>
+                                <li><a href="../cuniculture.html">Cuniculture</a></li>
+                                <li><a href="../heliciculture.html">Héliciculture</a></li>
+                                <li><a href="../ovinculture.html">Ovinculture</a></li>
+                                <li><a href="../porciculture.html">Porciculture</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Blog AgroVision</h1>
+                    <p>Actualités, conseils et innovations dans le monde de l'agriculture et de l'élevage</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtres -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters">
+                    <button class="filter-btn active" data-category="tous">Tous</button>
+                    <button class="filter-btn" data-category="agriculture">Agriculture</button>
+                    <button class="filter-btn" data-category="elevage">Élevage</button>
+                    <button class="filter-btn" data-category="technologie">Technologie</button>
+                    <button class="filter-btn" data-category="durabilite">Durabilité</button>
+                    <button class="filter-btn" data-category="permaculture">Permaculture</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles -->
+        <section class="articles-section">
+            <div class="container">
+                <div class="articles-grid">
+                    <article class="article-card" data-category="agriculture">
+                        <div class="article-image">
+                            <img src="img/7088836.jpg" alt="Irrigation intelligente">
+                            <div class="article-category">Agriculture</div>
+                            <div class="bookmark-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h3>Les Nouvelles Techniques d'Irrigation Intelligente</h3>
+                            <p>Découvrez comment l'irrigation de précision peut réduire la consommation d'eau de 40%
+                                tout en augmentant les rendements.</p>
+                            <div class="article-meta">
+                                <div class="meta-info">
+                                    <span class="author"><i class="fas fa-user"></i> Dr. Marie Dubois</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> 15 Janvier 2025</span>
+                                </div>
+                                <span class="read-time">5 min</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Lire la suite <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="elevage">
+                        <div class="article-image">
+                            <img src="img/avibio.jpg" alt="Aviculture bio">
+                            <div class="article-category">Élevage</div>
+                            <div class="bookmark-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h3>Optimisation de l'Alimentation en Aviculture Bio</h3>
+                            <p>Guide complet pour formuler des rations équilibrées respectant les standards de
+                                l'agriculture biologique.</p>
+                            <div class="article-meta">
+                                <div class="meta-info">
+                                    <span class="author"><i class="fas fa-user"></i> Jean-Pierre Martin</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> 12 Janvier 2025</span>
+                                </div>
+                                <span class="read-time">8 min</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Lire la suite <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="durabilite">
+                        <div class="article-image">
+                            <img src="https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="Agriculture régénératrice">
+                            <div class="article-category">Durabilité</div>
+                            <div class="bookmark-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h3>Agriculture Régénératrice : Restaurer les Sols</h3>
+                            <p>Les pratiques qui permettent de restaurer la santé des sols tout en maintenant la
+                                productivité agricole.</p>
+                            <div class="article-meta">
+                                <div class="meta-info">
+                                    <span class="author"><i class="fas fa-user"></i> Sophie Laurent</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> 10 Janvier 2025</span>
+                                </div>
+                                <span class="read-time">6 min</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Lire la suite <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="technologie">
+                        <div class="article-image">
+                            <img src="https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="Robotique élevage">
+                            <div class="article-category">Technologie</div>
+                            <div class="bookmark-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h3>Robotique en Élevage Laitier : Révolution Technologique</h3>
+                            <p>Comment les robots de traite transforment la gestion des troupeaux et améliorent le
+                                bien-être animal.</p>
+                            <div class="article-meta">
+                                <div class="meta-info">
+                                    <span class="author"><i class="fas fa-user"></i> Thomas Berger</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> 8 Janvier 2025</span>
+                                </div>
+                                <span class="read-time">7 min</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Lire la suite <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="permaculture">
+                        <div class="article-image">
+                            <img src="https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="Permaculture">
+                            <div class="article-category">Permaculture</div>
+                            <div class="bookmark-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h3>Permaculture : Créer des Écosystèmes Productifs</h3>
+                            <p>Principes et techniques pour développer des systèmes agricoles durables inspirés de la
+                                nature.</p>
+                            <div class="article-meta">
+                                <div class="meta-info">
+                                    <span class="author"><i class="fas fa-user"></i> Anne Moreau</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> 5 Janvier 2025</span>
+                                </div>
+                                <span class="read-time">10 min</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Lire la suite <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="elevage">
+                        <div class="article-image">
+                            <img src="img/veto.jpg" alt="Élevage ovin">
+                            <div class="article-category">Élevage</div>
+                            <div class="bookmark-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <h3>Gestion Intégrée des Parasites en Élevage Ovin</h3>
+                            <p>Stratégies efficaces pour contrôler les parasites tout en préservant la santé des
+                                animaux.</p>
+                            <div class="article-meta">
+                                <div class="meta-info">
+                                    <span class="author"><i class="fas fa-user"></i> Dr. Pierre Rousseau</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> 3 Janvier 2025</span>
+                                </div>
+                                <span class="read-time">6 min</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Lire la suite <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Restez Informé de nos Dernières Publications</h2>
+                    <p>Recevez chaque semaine nos meilleurs articles directement dans votre boîte e-mail</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre adresse e-mail" required>
+                        <button type="submit">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-leaf"></i></span>
+                        <span class="logo-text">AgroVision</span>
+                    </div>
+                    <p>Votre partenaire de confiance pour l'agriculture moderne et l'élevage durable.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Agriculture</h3>
+                    <ul>
+                        <li><a href="#">Commerciale</a></li>
+                        <li><a href="#">Foragère</a></li>
+                        <li><a href="#">Maraîchère</a></li>
+                        <li><a href="#">Vivrière</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Élevage</h3>
+                    <ul>
+                        <li><a href="#">Aviculture</a></li>
+                        <li><a href="#">Boviculture</a></li>
+                        <li><a href="#">Porciculture</a></li>
+                        <li><a href="#">Cuniculture</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <p>123 Rue de l'Agriculture</p>
+                        <p>75001 Paris, France</p>
+                        <p>Tél: +33 1 23 45 67 89</p>
+                        <p>Email: contact@agrovision.fr</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AgroVision. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription - AgroVision</title>
+  <link rel="stylesheet" href="../css/maine.css">
+  <link rel="stylesheet" href="../css/register.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header header-light">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="../index.html">
+            <span class="logo-icon"><i class="fas fa-leaf"></i></span>
+            <span class="logo-text">AgroVision</span>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <button class="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-list">
+            <li><a href="../index.html">Accueil</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Agriculture <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="agriculture/commerciale.html">Commerciale</a></li>
+                <li><a href="agriculture/foragere.html">Foragère</a></li>
+                <li><a href="agriculture/industrielle.html">Industrielle</a></li>
+                <li><a href="agriculture/maraichere.html">Maraîchère</a></li>
+                <li><a href="agriculture/rente.html">Rente</a></li>
+                <li><a href="agriculture/vivriere.html">Vivrière</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Élevage <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="../aviculture.html">Aviculture</a></li>
+                <li><a href="../boviculture.html">Boviculture</a></li>
+                <li><a href="../cuniculture.html">Cuniculture</a></li>
+                <li><a href="../heliciculture.html">Héliciculture</a></li>
+                <li><a href="../ovinculture.html">Ovinculture</a></li>
+                <li><a href="../porciculture.html">Porciculture</a></li>
+              </ul>
+            </li>
+            <li><a href="../about.html">À Propos</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="auth-buttons">
+          <a href="login.html" class="btn btn-outline">Connexion</a>
+          <a href="register.html" class="btn btn-primary active">Inscription</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Registration Section -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-image">
+        <img src="https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Agriculture field">
+      </div>
+      <div class="auth-form-container">
+        <div class="auth-form-header">
+          <h1>Créer un compte</h1>
+          <p>Rejoignez notre communauté d'agriculteurs et d'éleveurs passionnés</p>
+        </div>
+        <form id="register-form" class="auth-form">
+          <div class="form-row">
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-icon"><i class="fas fa-user"></i></span>
+                <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-icon"><i class="fas fa-user"></i></span>
+                <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-icon"><i class="fas fa-envelope"></i></span>
+              <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-icon"><i class="fas fa-phone"></i></span>
+              <input type="tel" id="phone" name="phone" placeholder="Votre numéro de téléphone" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-icon"><i class="fas fa-tractor"></i></span>
+              <select id="farm-type" name="farm-type" required>
+                <option value="" disabled selected>Sélectionnez votre type d'exploitation</option>
+                <option value="Elevage">Elevage</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="mixed">Mixte</option>
+                <option value="other">Autre</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-icon"><i class="fas fa-lock"></i></span>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                <button type="button" class="password-toggle"><i class="fas fa-eye"></i></button>
+              </div>
+              <div class="password-strength">
+                <div class="strength-meter">
+                  <div class="strength-meter-fill" data-strength="0"></div>
+                </div>
+                <div class="strength-text">Force du mot de passe</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-icon"><i class="fas fa-lock"></i></span>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Mot de passe" required>
+                <button type="button" class="password-toggle"><i class="fas fa-eye"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">J'accepte les <a href="../terms.html">conditions d'utilisation</a> et la <a href="../privacy.html">politique de confidentialité</a></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="newsletter" name="newsletter">
+              <label for="newsletter">Je souhaite recevoir la newsletter et les actualités</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
+          </div>
+          <div class="auth-divider">
+            <span>ou s'inscrire avec</span>
+          </div>
+          <div class="social-auth">
+            <button type="button" class="btn btn-social btn-google">
+              <i class="fab fa-google"></i> Google
+            </button>
+            <button type="button" class="btn btn-social btn-facebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+          </div>
+          <div class="auth-footer">
+            Déjà inscrit? <a href="login.html">Se connecter</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer footer-light">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 AgroVision. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/register.js"></script>
+</body>
+</html>
