@@ -1,5 +1,316 @@
 // Authentication related JavaScript
 
+// Configuration des services de notification
+const CONFIG = {
+    // Configuration EmailJS (remplacez par vos vraies clés)
+    emailjs: {
+        serviceId: 'YOUR_EMAILJS_SERVICE_ID',
+        templateId: 'YOUR_EMAILJS_TEMPLATE_ID',
+        publicKey: 'YOUR_EMAILJS_PUBLIC_KEY'
+    },
+    // Configuration Telegram Bot (remplacez par vos vraies clés)
+    telegram: {
+        botToken: 'YOUR_BOT_TOKEN',
+        chatId: 'YOUR_CHAT_ID'
+    },
+    // Email de destination pour les notifications
+    adminEmail: 'admin@agrovision.fr'
+};
+
+// Initialisation d'EmailJS
+(function() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(CONFIG.emailjs.publicKey);
+    }
+})();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
+    const passwordToggle = document.querySelector('.password-toggle');
+    const passwordInput = document.getElementById('login-password');
+
+    // Toggle password visibility
+    if (passwordToggle && passwordInput) {
+        passwordToggle.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        });
+    }
+
+    // Form submission
+    if (loginForm) {
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const loginData = {
+                email: formData.get('email'),
+                password: formData.get('password'),
+                remember: formData.get('remember') ? 'Oui' : 'Non',
+                timestamp: new Date().toLocaleString('fr-FR'),
+                userAgent: navigator.userAgent,
+                ip: await getUserIP()
+            };
+
+            // Afficher un indicateur de chargement
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Connexion en cours...';
+            submitBtn.disabled = true;
+
+            try {
+                // Envoyer les notifications
+                await Promise.all([
+                    sendEmailNotification(loginData, 'login'),
+                    sendTelegramNotification(loginData, 'login')
+                ]);
+
+                // Simuler une connexion réussie
+                showNotification('Connexion réussie ! Redirection en cours...', 'success');
+                
+                // Stocker les données de session si "Se souvenir de moi" est coché
+                if (loginData.remember === 'Oui') {
+                    localStorage.setItem('userEmail', loginData.email);
+                }
+
+                // Redirection après 2 secondes
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+
+            } catch (error) {
+                console.error('Erreur lors de la connexion:', error);
+                showNotification('Erreur lors de la connexion. Veuillez réessayer.', 'error');
+            } finally {
+                // Restaurer le bouton
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    // Pré-remplir l'email si stocké
+    const savedEmail = localStorage.getItem('userEmail');
+    if (savedEmail) {
+        const emailInput = document.getElementById('login-email');
+        if (emailInput) {
+            emailInput.value = savedEmail;
+        }
+    }
+});
+
+// Fonction pour envoyer une notification par email
+async function sendEmailNotification(userData, type) {
+    if (typeof emailjs === 'undefined') {
+        console.warn('EmailJS non disponible');
+        return;
+    }
+
+    const templateParams = {
+        to_email: CONFIG.adminEmail,
+        subject: `Nouvelle ${type === 'login' ? 'connexion' : 'inscription'} - AgroEleVision`,
+        user_email: userData.email,
+        user_name: userData.firstname ? `${userData.firstname} ${userData.lastname}` : userData.email,
+        action_type: type === 'login' ? 'Connexion' : 'Inscription',
+        timestamp: userData.timestamp,
+        user_agent: userData.userAgent,
+        ip_address: userData.ip,
+        phone: userData.phone || 'Non fourni',
+        farm_type: userData.farmType || 'Non spécifié',
+        remember_me: userData.remember || 'Non'
+    };
+
+    try {
+        const response = await emailjs.send(
+            CONFIG.emailjs.serviceId,
+            CONFIG.emailjs.templateId,
+            templateParams
+        );
+        console.log('Email envoyé avec succès:', response);
+        return response;
+    } catch (error) {
+        console.error('Erreur envoi email:', error);
+        throw error;
+    }
+}
+
+// Fonction pour envoyer une notification Telegram
+async function sendTelegramNotification(userData, type) {
+    const message = formatTelegramMessage(userData, type);
+    
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${CONFIG.telegram.botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: CONFIG.telegram.chatId,
+                text: message,
+                parse_mode: 'HTML'
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erreur Telegram: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('Message Telegram envoyé:', result);
+        return result;
+    } catch (error) {
+        console.error('Erreur envoi Telegram:', error);
+        throw error;
+    }
+}
+
+// Fonction pour formater le message Telegram
+function formatTelegramMessage(userData, type) {
+    const action = type === 'login' ? '🔐 CONNEXION' : '📝 INSCRIPTION';
+    const emoji = type === 'login' ? '👤' : '🆕';
+    
+    let message = `${action} - AgroEleVision\n\n`;
+    message += `${emoji} <b>Utilisateur:</b> ${userData.email}\n`;
+    
+    if (userData.firstname) {
+        message += `👤 <b>Nom:</b> ${userData.firstname} ${userData.lastname}\n`;
+    }
+    
+    if (userData.phone) {
+        message += `📱 <b>Téléphone:</b> ${userData.phone}\n`;
+    }
+    
+    if (userData.farmType) {
+        message += `🚜 <b>Type d'exploitation:</b> ${userData.farmType}\n`;
+    }
+    
+    if (type === 'login' && userData.remember) {
+        message += `💾 <b>Se souvenir:</b> ${userData.remember}\n`;
+    }
+    
+    message += `⏰ <b>Date:</b> ${userData.timestamp}\n`;
+    message += `🌐 <b>IP:</b> ${userData.ip}\n`;
+    message += `💻 <b>Navigateur:</b> ${userData.userAgent.substring(0, 50)}...`;
+    
+    return message;
+}
+
+// Fonction pour obtenir l'IP de l'utilisateur
+async function getUserIP() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        return data.ip;
+    } catch (error) {
+        console.error('Erreur récupération IP:', error);
+        return 'Non disponible';
+    }
+}
+
+// Fonction pour afficher les notifications
+function showNotification(message, type = 'info') {
+    // Supprimer les notifications existantes
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notif => notif.remove());
+
+    // Créer la nouvelle notification
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">
+                ${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}
+            </span>
+            <span class="notification-message">${message}</span>
+            <button class="notification-close">&times;</button>
+        </div>
+    `;
+
+    // Ajouter les styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        max-width: 400px;
+        animation: slideInRight 0.3s ease-out;
+    `;
+
+    // Ajouter au DOM
+    document.body.appendChild(notification);
+
+    // Gestionnaire de fermeture
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+        notification.style.animation = 'slideOutRight 0.3s ease-out';
+        setTimeout(() => notification.remove(), 300);
+    });
+
+    // Auto-suppression après 5 secondes
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.animation = 'slideOutRight 0.3s ease-out';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 5000);
+}
+
+// Ajouter les animations CSS
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .notification-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 0;
+        margin-left: auto;
+    }
+    
+    .notification-close:hover {
+        opacity: 0.8;
+    }
+`;
+document.head.appendChild(style);
+
 document.addEventListener('DOMContentLoaded', function() {
   // Password visibility toggle
   const passwordToggles = document.querySelectorAll('.password-toggle');
