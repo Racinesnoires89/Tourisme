@@ -1016,6 +1016,24 @@ section {
   display: none;
 }
 
+.testimonials-slider .testimonial-card {
+  flex: 0 0 100%;
+  animation: slide 16s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .testimonial-card {
   flex: 0 0 auto;
   width: 100%;
